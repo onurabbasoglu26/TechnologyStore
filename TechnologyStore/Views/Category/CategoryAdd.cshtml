@@ -1,0 +1,27 @@
+﻿
+@model TechnologyStore.Models.Category
+
+@{
+    ViewData["Title"] = "CategoryAdd";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h2 class="text-center"><b>Category Add Page</b></h2>
+<br />
+@using (Html.BeginForm("CategoryAdd", "Category", FormMethod.Post))
+{
+    <div>
+        <p>Category Name:</p>
+        @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.CategoryName, "", new { @style = "color:red" })
+    </div>
+    <br />
+    <div>
+        <p>Category Description:</p>
+        @Html.TextBoxFor(x => x.CategoryDescription, new { @class = "form-control" })
+    </div>
+    <br />
+    <button class="btn btn-primary">Save</button>
+}
+

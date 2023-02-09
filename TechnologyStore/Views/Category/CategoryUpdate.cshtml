@@ -1,0 +1,39 @@
+﻿
+@model TechnologyStore.Models.Category
+
+@{
+    ViewData["Title"] = "CategoryUpdate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h2 class="text-center"><b>Category Update Page</b></h2>
+<br />
+
+@using (Html.BeginForm("CategoryUpdate", "Category", FormMethod.Post))
+{
+    <div>
+        <p>Category ID:</p>
+        @Html.TextBoxFor(x => x.CategoryID, new { @class = "form-control" })
+    </div>
+    <br />
+    <div>
+        <p>Category Name:</p>
+        @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.CategoryName, "", new { @style = "color:red" })
+    </div>
+    <br />
+    <div>
+        <p>Status:</p>
+        @Html.TextBoxFor(x => x.Status, new { @class = "form-control" })
+    </div>
+    <br />
+    <div>
+        <p>Category Description:</p>
+        @Html.TextAreaFor(x => x.CategoryDescription, new { @class = "form-control" })
+    </div>
+    <br />
+    <a href="~/Category/Index" class="btn btn-danger">Back</a>
+    <button class="btn btn-primary">Update</button>
+}
+

@@ -1,0 +1,51 @@
+﻿
+@model List<TechnologyStore.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h2 class="text-center"><b>Product List</b></h2>
+<br />
+@using (Html.BeginForm())
+{
+    <label>
+        <b class="mx-1">Product Name : @Html.TextBox("p")</b>
+        <input class="btn btn-secondary" type="submit" value="Find" />
+    </label>
+}
+<br />
+<table class="table table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Category</th>
+            <th scope="col">Price</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Details</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tbody>
+            <tr>
+                <th>@item.ProductID</th>
+                <td>@item.ProductName</td>
+                <td>@item.Category.CategoryName</td>
+                <td>@item.ProductPrice</td>
+                <td>@item.ProductStock</td>
+                <td><a href="~/Product/ProductDetails/@item.ProductID" class="btn btn-warning">Details</a></td>
+                <td><a href="~/Product/ProductUpdate/@item.ProductID" class="btn btn-success">Update</a></td>
+                <td><a href="~/Product/ProductDelete/@item.ProductID" class="btn btn-danger">Delete</a></td>
+            </tr>
+        </tbody>
+    }
+</table>
+<br />
+<a href="~/Product/ProductAdd" class="btn btn-primary">New Product</a>
+

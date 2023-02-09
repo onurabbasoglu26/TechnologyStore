@@ -1,0 +1,65 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Technology Store Admin Panel</title>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8">
+    <link href="~/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/bootstrap/js/bootstrap.bundle.js"></script>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container mt-2 mb-2">
+            <div class="">
+                <img src="/pictures/TechStore.jpg" width="45" height="45" alt="">
+                <a class="navbar-brand mb-0 h1 mx-2" href="#">Technology Store</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-2">
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/Category/Index">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/Product/Index">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/Chart/Index">Statistics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/Setting/Index">Settings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/Home/Index">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-2">
+        @RenderBody()
+    </div>
+
+    <div class="container">
+        <footer class="py-3 my-4 mt-auto">
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+            </ul>
+            <p class="text-center text-muted">© 2022 All rights reserved</p>
+        </footer>
+    </div>
+
+</body>
+</html>

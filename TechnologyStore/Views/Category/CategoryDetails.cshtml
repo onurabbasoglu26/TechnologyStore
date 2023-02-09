@@ -1,0 +1,36 @@
+﻿
+@model TechnologyStore.Models.Category
+
+@{
+    ViewData["Title"] = "CategoryDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h2 class="text-center"><b>Category Details Page</b></h2>
+<br />
+
+<div>
+    <p>Category ID:</p>
+    @Html.TextBoxFor(x => x.CategoryID, new { disabled = "disabled", @class = "form-control" })
+</div>
+<br />
+<div>
+    <p>Category Name:</p>
+    @Html.TextBoxFor(x => x.CategoryName, new { disabled = "disabled", @class = "form-control" })
+</div>
+<br />
+<div>
+    <p>Status:</p>
+    @Html.TextBoxFor(x => x.Status, new { disabled = "disabled", @class = "form-control" })
+</div>
+<br />
+<div>
+    <p>Category Description:</p>
+    @Html.TextAreaFor(x => x.CategoryDescription, new { disabled = "disabled", @class = "form-control" })
+</div>
+<br />
+<a href="~/Category/Index" class="btn btn-danger">Back</a>
+
+
+

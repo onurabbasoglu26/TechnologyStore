@@ -1,0 +1,49 @@
+﻿
+@model TechnologyStore.Models.Product
+
+@{
+    ViewData["Title"] = "ProductDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h2 class="text-center"><b>Product Details Page</b></h2>
+<br />
+<div>
+    <p>Product ID:</p>
+    @Html.TextBoxFor(x => x.ProductID, new { @disabled = "disabled", @class = "form-control" })
+</div>
+<br />
+<div>
+    <p>Product Name:</p>
+    @Html.TextBoxFor(x => x.ProductName, new { @disabled = "disabled", @class = "form-control" })
+</div>
+<br />
+<div>
+    <p>Category:</p>
+    @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.v1, new { @disabled = "disabled", @class = "form-control" })
+</div>
+<br />
+<div>
+    <p>Price:</p>
+    @Html.TextBoxFor(x => x.ProductPrice, new { @disabled = "disabled", @class = "form-control" })
+</div>
+<br />
+<div>
+    <p>Stock:</p>
+    @Html.TextBoxFor(x => x.ProductStock, new { @disabled = "disabled", @class = "form-control" })
+</div>
+<br />
+<div>
+    <p>Image:</p>
+    <img src="@Html.DisplayFor(x=>x.ImageURL)" alt="" class="w-50" />
+</div>
+<br />
+<div>
+    <p>Product Description:</p>
+    @Html.TextAreaFor(x => x.ProductDescription, new { @disabled = "disabled", @class = "form-control" })
+</div>
+<br />
+<a href="~/Product/Index" class="btn btn-danger">Back</a>
+
+
