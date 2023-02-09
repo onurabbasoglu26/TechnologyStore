@@ -1,5 +1,8 @@
 ﻿
-@model List<TechnologyStore.Models.Product>
+@using X.PagedList
+@using X.PagedList.Mvc.Core
+@using X.PagedList.Web.Common;
+@model IPagedList<TechnologyStore.Models.Product>
 
 @{
     ViewData["Title"] = "Index";
@@ -11,10 +14,10 @@
 <br />
 @using (Html.BeginForm())
 {
-    <label>
+    <div>
         <b class="mx-1">Product Name : @Html.TextBox("p")</b>
         <input class="btn btn-secondary" type="submit" value="Find" />
-    </label>
+    </div>
 }
 <br />
 <table class="table table-bordered">
@@ -46,6 +49,21 @@
         </tbody>
     }
 </table>
+<br />
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }),
+new PagedListRenderOptions
+{
+
+    ContainerDivClasses = new string[] { "navigation" },
+    PageClasses = new string[] { "page-link" },
+    UlElementClasses = new string[] { "pagination" },
+    LiElementClasses = new string[] { "page-item" },
+    DisplayItemSliceAndTotal = false,
+    DisplayEllipsesWhenNotShowingAllPageNumbers = true,
+    DisplayLinkToFirstPage = PagedListDisplayMode.IfNeeded,
+    DisplayLinkToLastPage = PagedListDisplayMode.IfNeeded,
+    MaximumPageNumbersToDisplay = 5
+})
 <br />
 <a href="~/Product/ProductAdd" class="btn btn-primary">New Product</a>
 

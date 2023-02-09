@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TechnologyStore.Models;
 using TechnologyStore.Repositories;
+using X.PagedList;
 
 namespace TechnologyStore.Controllers
 {
@@ -11,13 +12,13 @@ namespace TechnologyStore.Controllers
     {
         readonly CategoryRepository categoryRepository = new CategoryRepository();
         ProductRepository productRepository = new ProductRepository();
-        public IActionResult Index(string p)
+        public IActionResult Index(string p, int page = 1)
         {
             if (!string.IsNullOrEmpty(p))
             {
-                return View(productRepository.GetAll((x => x.ProductName.StartsWith(p)), "Category"));
+                return View(productRepository.GetAll((x => x.ProductName.Contains(p)), "Category").ToPagedList(page, 5));
             }
-            return View(productRepository.GetAll("Category"));
+            return View(productRepository.GetAll("Category").ToPagedList(page, 5));
         }
 
         [HttpGet]
