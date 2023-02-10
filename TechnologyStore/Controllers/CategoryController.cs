@@ -1,19 +1,20 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TechnologyStore.Models;
 using TechnologyStore.Repositories;
+using X.PagedList;
 
 namespace TechnologyStore.Controllers
 {
     public class CategoryController : Controller
     {
         CategoryRepository repository = new CategoryRepository();
-        public IActionResult Index(string p)
+        public IActionResult Index(string p, int page = 1)
         {
             if (!string.IsNullOrEmpty(p))
             {
-                return View(repository.GetAll(x => x.CategoryName.StartsWith(p)));
+                return View(repository.GetAll(x => x.CategoryName.StartsWith(p)).ToPagedList(page, 5));
             }
-            return View(repository.GetAll());
+            return View(repository.GetAll().ToPagedList(page, 5));
         }
 
         [HttpGet]
