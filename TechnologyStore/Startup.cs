@@ -28,6 +28,8 @@ namespace TechnologyStore
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseStatusCodePagesWithReExecute("/ErrorPage/Error1", "?code={0}");
+
             app.UseStaticFiles();
 
             app.UseMvc(routes =>

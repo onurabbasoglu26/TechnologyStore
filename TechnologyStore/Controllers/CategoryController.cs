@@ -12,7 +12,7 @@ namespace TechnologyStore.Controllers
         {
             if (!string.IsNullOrEmpty(p))
             {
-                return View(repository.GetAll(x => x.CategoryName.StartsWith(p)).ToPagedList(page, 5));
+                return View(repository.GetAll(x => x.CategoryName.Contains(p)).ToPagedList(page, 5));
             }
             return View(repository.GetAll().ToPagedList(page, 5));
         }
@@ -52,10 +52,6 @@ namespace TechnologyStore.Controllers
         [HttpPost]
         public IActionResult CategoryUpdate(Category p)
         {
-            //var x = repository.GetById(p.CategoryID);
-            //x.CategoryName = p.CategoryName;
-            //x.CategoryDescription = p.CategoryDescription;
-            //x.Status = true;
             p.Status = true;
             repository.Update(p);
             return RedirectToAction("Index");
