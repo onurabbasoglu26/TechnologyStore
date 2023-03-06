@@ -1,0 +1,58 @@
+﻿
+.content-total {
+    margin: 2em 1em;
+}
+
+.content-list {
+    margin: 2em 0;
+}
+
+.content-1 {
+    width: 23.5%;
+    margin-right: 2%;
+    background: #16a085;
+    padding: 1.8em 1.5em;
+    float: left;
+    cursor: pointer;
+}
+
+.content-2 {
+    width: 23.5%;
+    background: #e05d6f;
+    padding: 1.8em 01.5em;
+    float: left;
+    margin-right: 2%;
+    cursor: pointer;
+}
+
+.content-3 {
+    width: 23.5%;
+    margin-right: 2%;
+    background: #418bca;
+    padding: 1.8em 1.5em;
+    float: left;
+    cursor: pointer;
+}
+
+.content-4 {
+    width: 23.5%;
+    margin-right: 0%;
+    background: #3f4e62;
+    padding: 1.8em 2em;
+    float: left;
+    cursor: pointer;
+}
+
+    .content-4 h3, .content-1 h3, .content-2 h3, .content-3 h3 {
+        color: #fff;
+        text-align: center;
+        font-size: 2.6em;
+        font-weight: 500;
+        letter-spacing: 1px;
+    }
+
+    .content-4 p, .content-1 p, .content-2 p, .content-3 p {
+        color: #fff;
+        font-size: 1.3em;
+        font-weight: 300;
+    }

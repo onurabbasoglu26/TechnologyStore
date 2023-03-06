@@ -11,17 +11,18 @@ using TechnologyStore.Repositories;
 
 namespace TechnologyStore.Controllers
 {
-    [AllowAnonymous]
     public class LoginController : Controller
     {
         AdminRepository adminRepository = new AdminRepository();
 
+        [AllowAnonymous]
         [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
 
+        [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> Index(Admin admin)
         {
@@ -35,7 +36,7 @@ namespace TechnologyStore.Controllers
                 var userIdentity = new ClaimsIdentity(claims, "Login");
                 ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(userIdentity);
                 await HttpContext.SignInAsync(claimsPrincipal);
-                return RedirectToAction("Index", "Category");
+                return RedirectToAction("Login", "Home");
             }
             return View();
         }
@@ -45,6 +46,12 @@ namespace TechnologyStore.Controllers
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Index", "Login");
+        }
+
+        [HttpGet]
+        public IActionResult Home()
+        {
+            return View();
         }
     }
 }

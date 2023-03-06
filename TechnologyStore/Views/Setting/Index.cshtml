@@ -1,0 +1,35 @@
+﻿
+@using TechnologyStore.Models
+@model List<Admin>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h2 class="text-center"><b>Admin List</b></h2>
+<br />
+<table class="table table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Username</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tbody>
+            <tr>
+                <th>@item.AdminID</th>
+                <td>@item.UserName</td>
+                <td><a href="~/Category/CategoryUpdate/@item.AdminID" class="btn btn-success">Update</a></td>
+                <td><a href="~/Category/CategoryDelete/@item.AdminID" class="btn btn-danger">Delete</a></td>
+            </tr>
+        </tbody>
+    }
+</table>
+<br />
+<a href="~/Setting/AdminAdd" class="btn btn-primary">New Admin</a>
